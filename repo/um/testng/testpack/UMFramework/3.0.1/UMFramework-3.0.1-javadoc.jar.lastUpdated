@@ -1,0 +1,14 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Jan 22 19:03:46 IST 2020
+file\:C\:\\Selenium\ Projects\\Practice\\Practice\ Framework\\repo/.error=
+file\:C\:\\Selenium\ Projects\\Allianz\\AutomationCore\\repo/.error=
+http\://download.java.net/maven/2/.lastUpdated=1575466706386
+file\:C\:\\Selenium\ Projects\\Practice\\Practice\ Framework\\repo/.lastUpdated=1575481501698
+http\://repository-perfectomobile.forge.cloudbees.com/public/.error=Could not transfer artifact um.testng.testpack\:UMFramework\:jar\:javadoc\:3.0.1 from/to perfectomobile (http\://repository-perfectomobile.forge.cloudbees.com/public)\: repository-perfectomobile.forge.cloudbees.com
+http\://download.java.net/maven/2/.error=
+file\:C\:\\Selenium\ Projects\\Allianz\\AutomationCore-master\\repo/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1575466707399
+@default-perfectomobile-http\://repository-perfectomobile.forge.cloudbees.com/public/.lastUpdated=1575466706401
+https\://repo.maven.apache.org/maven2/.error=
+file\:C\:\\Selenium\ Projects\\Allianz\\AutomationCore-master\\repo/.lastUpdated=1579700026066
+file\:C\:\\Selenium\ Projects\\Allianz\\AutomationCore\\repo/.lastUpdated=1575466703967

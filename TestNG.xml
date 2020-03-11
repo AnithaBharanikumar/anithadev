@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="12" name="Default Suite" parallel="tests">
+  <test thread-count="1" name="K2POKNSNJG" parallel="methods">
+    <classes>
+      <class name="um.testng.test.alltestpack.TestPackA">
+        <methods>
+          <include name="playerIndex"/>
+          <include name="cnnPomTest"/>
+        </methods>
+      </class> <!-- um.testng.test.alltestpack.TestPackA -->
+    </classes>
+  </test> <!-- K2POKNSNJG -->
+  <test thread-count="1" name="c2a3b2a4" parallel="methods">
+    <classes>
+      <class name="um.testng.test.alltestpack.TestPackA">
+        <methods>
+          <include name="playerIndex"/>
+          <include name="cnnPomTest"/>
+        </methods>
+      </class> <!-- um.testng.test.alltestpack.TestPackA -->
+    </classes>
+  </test> <!-- c2a3b2a4 -->
+  <test thread-count="1" name="TEMP1" parallel="methods">
+    <classes>
+      <class name="um.testng.test.alltestpack.TestPackA">
+        <methods>
+          <include name="playerIndex"/>
+        </methods>
+      </class> <!-- um.testng.test.alltestpack.TestPackA -->
+    </classes>
+  </test> <!-- TEMP1 -->
+  <test thread-count="1" name="FA3C8SC00313" parallel="methods">
+    <classes>
+      <class name="um.testng.test.alltestpack.TestPackA">
+        <methods>
+          <include name="playerIndex"/>
+        </methods>
+      </class> <!-- um.testng.test.alltestpack.TestPackA -->
+    </classes>
+  </test> <!-- FA3C8SC00313 -->
+  <test thread-count="1" name="TEMP2" parallel="methods">
+    <classes>
+      <class name="um.testng.test.alltestpack.TestPackA">
+        <methods>
+          <include name="playerIndex"/>
+        </methods>
+      </class> <!-- um.testng.test.alltestpack.TestPackA -->
+    </classes>
+  </test> <!-- TEMP2 -->
+  <test thread-count="1" name="F5KKMSL" parallel="methods">
+    <classes>
+      <class name="um.testng.test.alltestpack.TestPackA">
+        <methods>
+          <include name="playerIndex"/>
+          <include name="cnnPomTest"/>
+        </methods>
+      </class> <!-- um.testng.test.alltestpack.TestPackA -->
+    </classes>
+  </test> <!-- F5KKMSL -->
+  <test thread-count="1" name="TEMP3" parallel="methods">
+    <classes>
+      <class name="um.testng.test.alltestpack.TestPackA">
+        <methods>
+          <include name="playerIndex"/>
+        </methods>
+      </class> <!-- um.testng.test.alltestpack.TestPackA -->
+    </classes>
+  </test> <!-- TEMP3 -->
+  <test thread-count="12" name="Browser" parallel="methods">
+    <classes>
+      <class name="um.testng.test.alltestpack.TestPackA">
+        <methods>
+          <include name="playerIndex"/>
+          <include name="cnnPomTest"/>
+        </methods>
+      </class> <!-- um.testng.test.alltestpack.TestPackA -->
+    </classes>
+  </test> <!-- Browser -->
+</suite> <!-- Default Suite -->
