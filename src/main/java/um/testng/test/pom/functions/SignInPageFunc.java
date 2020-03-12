@@ -20,34 +20,70 @@ public class SignInPageFunc {
 	}
 
 
-public void verifySignIn(String emailAddr, String password) throws IOException{
-	try {
-		String url="";
-		WebDriver driver = DriverFactory.getCurrentDriver();
-		//driver.manage().deleteAllCookies();			
-		url=ConfigProp.getPropertyValue("RBT_URL_"+ConfigProvider.getConfig("Environment"));
-		browserName=ConfigProvider.getConfig("Browser").toUpperCase();
-		System.out.println("Browser--"+ConfigProvider.getConfig("Browser").toUpperCase());		
-		driver.manage().window().maximize();
-		driver.get(url);
-		
-		WrapperMethods.explicitWait(SignInPageElements.clickSignIn(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
-		WrapperMethods.click(SignInPageElements.clickSignIn(), "SignIn button is clicked", "SignIn button is not clicked");			
-		WrapperMethods.explicitWait(LoginPageElements.enterEmailAddress(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
-		WrapperMethods.sendkeys(LoginPageElements.enterEmailAddress(), emailAddr, "User name is entered in the login page", "User name is not entered in the login page");		
-		password=Encryption.decrypt(password);					
-		WrapperMethods.sendkeys(LoginPageElements.enterPassword(), password, "Password is entered in the login page", "Password is not entered in the login page");
-		WrapperMethods.click(LoginPageElements.clickLogIn(), "LogIn button is clicked", "LogIn button is not clicked");		
-		Thread.sleep(15000);	
-	
-} catch (Exception e) {
-	System.out.println(e.getMessage());
-	UMReporter.log(Status.FAIL, e.getMessage());
+	public void verifySignIn(String emailAddr, String password) throws IOException{
+		try {
+			String url="";
+			WebDriver driver = DriverFactory.getCurrentDriver();
+			//driver.manage().deleteAllCookies();			
+			url=ConfigProp.getPropertyValue("RBT_URL_"+ConfigProvider.getConfig("Environment"));
+			browserName=ConfigProvider.getConfig("Browser").toUpperCase();
+			System.out.println("Browser--"+ConfigProvider.getConfig("Browser").toUpperCase());		
+			driver.manage().window().maximize();
+			driver.get(url);
 
-	} 
-}
+			WrapperMethods.explicitWait(SignInPageElements.clickSignIn(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			WrapperMethods.click(SignInPageElements.clickSignIn(), "SignIn button is clicked", "SignIn button is not clicked");			
+			WrapperMethods.explicitWait(LoginPageElements.enterEmailAddress(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			WrapperMethods.sendkeys(LoginPageElements.enterEmailAddress(), emailAddr, "User name is entered in the login page", "User name is not entered in the login page");		
+			password=Encryption.decrypt(password);					
+			WrapperMethods.sendkeys(LoginPageElements.enterPassword(), password, "Password is entered in the login page", "Password is not entered in the login page");
+			WrapperMethods.click(LoginPageElements.clickLogIn(), "LogIn button is clicked", "LogIn button is not clicked");		
+			Thread.sleep(15000);	
 
-	
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+
+		} 
+	}
+
+	public void clickSignIn() throws IOException{
+		try {
+			String url="";
+			WebDriver driver = DriverFactory.getCurrentDriver();
+			//driver.manage().deleteAllCookies();			
+			url=ConfigProp.getPropertyValue("RBT_URL_"+ConfigProvider.getConfig("Environment"));
+			browserName=ConfigProvider.getConfig("Browser").toUpperCase();
+			System.out.println("Browser--"+ConfigProvider.getConfig("Browser").toUpperCase());		
+			driver.manage().window().maximize();
+			driver.get(url);
+
+			WrapperMethods.explicitWait(SignInPageElements.clickSignIn(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			WrapperMethods.click(SignInPageElements.clickSignIn(), "SignIn button is clicked", "SignIn button is not clicked");			
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+
+		} 
+	}
+	public void verifyLogin(String emailAddr, String password) throws IOException{
+		try {				
+			WrapperMethods.explicitWait(LoginPageElements.enterEmailAddress(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			WrapperMethods.sendkeys(LoginPageElements.enterEmailAddress(), emailAddr, "User name is entered in the login page", "User name is not entered in the login page");		
+			password=Encryption.decrypt(password);					
+			WrapperMethods.sendkeys(LoginPageElements.enterPassword(), password, "Password is entered in the login page", "Password is not entered in the login page");
+			WrapperMethods.click(LoginPageElements.clickLogIn(), "LogIn button is clicked", "LogIn button is not clicked");		
+			Thread.sleep(15000);		
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+
+		} 
+	}
+
+
 
 }
 

@@ -3,6 +3,7 @@ package um.testng.test.alltests;
 import java.io.IOException;
 
 import um.testng.test.pom.functions.HomePageFunc;
+import um.testng.test.pom.functions.LogInPageFunc;
 import um.testng.test.pom.functions.MyAccountFunc;
 import um.testng.test.pom.functions.RoomRequestFunc;
 import um.testng.test.pom.functions.SignInPageFunc;
@@ -19,8 +20,9 @@ public class DuplicateDelegate {
 	public static void duplicateDelegate() throws IOException {
 		try
 		{	
-			SignInPageFunc login = new SignInPageFunc();			
-			login.verifySignIn(ConfigProp.getPropertyValue("emailId_" + ConfigProvider.getConfig("Environment")),ConfigProp.getPropertyValue("password_" + ConfigProvider.getConfig("Environment")));
+			SignInPageFunc login = new SignInPageFunc();	
+			login.clickSignIn();			
+			LogInPageFunc.verifyLogIn(ConfigProp.getPropertyValue("emailId_" + ConfigProvider.getConfig("Environment")),ConfigProp.getPropertyValue("password_" + ConfigProvider.getConfig("Environment")));
 			HomePageFunc.clickUsername();
 			HomePageFunc.clickMyAccount();
 			MyAccountFunc.clickDelegates();

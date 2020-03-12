@@ -19,5 +19,10 @@ public class LoginPageElements {
 	public static By clickLogIn() {
 		return WrapperMethods.locatorValue(Locators.ID, "MainContent_LoginButton");
 	}
+	
+	public static By loginError() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//span[text()='Login failed. Invalid credentials.']");
+	}
+	
 
 }

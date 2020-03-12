@@ -3,6 +3,7 @@ package um.testng.test.alltests;
 import java.io.IOException;
 
 import um.testng.test.pom.functions.HomePageFunc;
+import um.testng.test.pom.functions.LogInPageFunc;
 import um.testng.test.pom.functions.MyAccountFunc;
 import um.testng.test.pom.functions.SignInPageFunc;
 import um.testng.test.utilities.framework.ConfigProp;
@@ -20,8 +21,9 @@ public class UpdateAccountDetails {
 	public static void updateAccountDetails() throws IOException {
 		try
 		{	
-			SignInPageFunc login = new SignInPageFunc();			
-			login.verifySignIn(ConfigProp.getPropertyValue("emailId_" + ConfigProvider.getConfig("Environment")),ConfigProp.getPropertyValue("password_" + ConfigProvider.getConfig("Environment")));
+			SignInPageFunc login = new SignInPageFunc();	
+			login.clickSignIn();			
+			LogInPageFunc.verifyLogIn(ConfigProp.getPropertyValue("emailId_" + ConfigProvider.getConfig("Environment")),ConfigProp.getPropertyValue("password_" + ConfigProvider.getConfig("Environment")));
 			HomePageFunc.clickUsername();
 			HomePageFunc.clickMyAccount();			
 			MyAccountFunc.selectTimeZone(TestDataProvider.getData("timezone"));
