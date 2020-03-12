@@ -163,6 +163,51 @@ public class MyAccountElements {
 		return WrapperMethods.locatorValue(Locators.ID, "user-menu-dropdown");		
 	}
 	
+	public static By clickMyFav() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//*[@id='account-tabs']/li[4]/a");
+	}
+	
+	public static By myfavAdd() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//h2[text()='Add New Favorite Room']");
+	}
+	
+	public static By myfavAddText() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//h2[text()='Add New Favorite Room']/following-sibling::p");
+	}
+	
+	public static By filterButton() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//button[@role='button']");
+	}
+	
+	public static By myfavSearchbox() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//input[@placeholder='Find by room name']");
+	}
+	
+	public static By myfavSection() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//h2[text()='Your Saved Favorite Rooms']");
+	}
+	
+	public static By myfavnorooms() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "(//div[contains(@class,'col-xs-12 grid-text-center')])[3]");
+	}
+	
+	public static By myfavavarooms() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//div[@class='col-sm-2 col-sm-3 hidden-xs mobile-wrap-text grid-text']");
+	}
+	
+	public static By deletefavroom() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//i[contains(@class,'fa fa-times-circle')]");
+	}
+	
+	public static By searchaddfavroom() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//div[@class='tt-suggestion tt-selectable']");
+	}
+	
+	public static By searchduplicatetextMyfav() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//div[@class='delegate-typeahead-notfound']"); 
+	}
+	
+	
 
 
 }

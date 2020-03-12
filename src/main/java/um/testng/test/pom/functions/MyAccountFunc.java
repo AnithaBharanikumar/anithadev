@@ -29,7 +29,7 @@ public class MyAccountFunc {
 			UMReporter.log(Status.FAIL, e.getMessage());
 		} 
 	}
-	
+
 	public static void verifyDelegateGreenNotch() throws IOException{
 		try {
 
@@ -57,7 +57,7 @@ public class MyAccountFunc {
 			UMReporter.log(Status.FAIL, e.getMessage());
 		} 
 	}
-	
+
 	public static void isYourSavedDelegatesAvailable() throws IOException{
 		try {
 
@@ -540,7 +540,7 @@ public class MyAccountFunc {
 			for(WebElement eachelement:alllinks) {				
 				acutalSubmenus.add(eachelement.getText().replaceAll("\\s+", ""));				
 			}
-			
+
 			if(acutalSubmenus.containsAll(expectedSubmenus)) 
 				UMReporter.log(Status.PASS, "Expected and acutal submenus are matching for User Details");
 			else
@@ -551,4 +551,119 @@ public class MyAccountFunc {
 			UMReporter.log(Status.FAIL, e.getMessage());
 		} 
 	}
+
+	//Anitha's code
+
+	public static void verifymyfav()throws IOException{
+		try { 
+			WrapperMethods.explicitWait(MyAccountElements.clickMyFav() , Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));	
+			WrapperMethods.click(MyAccountElements.clickMyFav(), "My Fav rooms is clicked", "My Fav rooms is not clicked");	
+			String color=WrapperMethods.getCssValue(MyAccountElements.clickMyFav(),"border-bottom-color");
+			if(color.equalsIgnoreCase("rgba(151, 202, 61, 1)")|color.equalsIgnoreCase("rgb(151, 202, 61)"))
+				UMReporter.log(Status.PASS,"Green notch is displayed");
+			else
+				UMReporter.log(Status.PASS,"Green notch is not  displayed");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		} 
+	}
+	public static void addfavRoom(String favrooms)throws IOException{
+		try { 
+			WrapperMethods.explicitWait(MyAccountElements.myfavSearchbox(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));				
+			WrapperMethods.click(MyAccountElements.myfavSearchbox());
+			WrapperMethods.sendkeys(MyAccountElements.myfavSearchbox(), favrooms, "Favorite room name is entered", "Favorite roome is not entered");
+			WrapperMethods.implicitWait();
+			WrapperMethods.click(MyAccountElements.searchaddfavroom(), "Favorite room name is selected", "Favorite room name is not selected");	
+			WrapperMethods.explicitWait(MyAccountElements.myfavavarooms(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			WrapperMethods.isElementAvailable(MyAccountElements.myfavavarooms(), "Favorite room name is added", "Favorite room name is not added");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		} 
+	}
+
+	public static void getduplicateFavroom(String favrooms) throws IOException{
+		try {
+			WrapperMethods.explicitWait(MyAccountElements.myfavSearchbox(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));				
+			WrapperMethods.click(MyAccountElements.myfavSearchbox());
+			WrapperMethods.sendkeys(MyAccountElements.myfavSearchbox(), favrooms, "Favorite room name is entered", "Favorite roome is not entered");
+			WrapperMethods.implicitWait();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		} 
+	}
+
+	public static void getduplicateFavroomMessage()throws IOException{
+		try { 
+			String actualmessage = WrapperMethods.getText(MyAccountElements.searchduplicatetextMyfav());	
+			System.out.println(actualmessage);
+			String exptectedmessage = "There are no rooms that match your search criteria.";				
+			WrapperMethods.compares_Text(exptectedmessage, actualmessage, "Not able to add duplicate Favorite room", "Able to add duplicate Favorite room");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		} 
+	}
+
+	public static void myFavDefault()throws IOException{
+		try {
+			WrapperMethods.explicitWait(MyAccountElements.clickMyFav() , Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			WrapperMethods.click(MyAccountElements.clickMyFav(), "My Fav rooms is clicked", "My Fav rooms is not clicked");
+			String color=WrapperMethods.getCssValue(MyAccountElements.clickMyFav(),"border-bottom-color");
+			if(color.equalsIgnoreCase("rgba(151, 202, 61, 1)")|color.equalsIgnoreCase("rgb(151, 202, 61)"))
+				UMReporter.log(Status.PASS,"Green notch is displayed");
+			else
+				UMReporter.log(Status.PASS,"Green notch is not  displayed");
+			WrapperMethods.explicitWait(MyAccountElements.myfavAdd(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			String actualText=WrapperMethods.getText(MyAccountElements.myfavAdd());
+			String exceptedtext="Add New Favorite Room";
+			if(actualText.contains(exceptedtext))
+				UMReporter.log(Status.PASS,"Text Add New Favorite Room is Displayed");
+			else
+				UMReporter.log(Status.PASS,"Text Add New Favorite Room is not Displayed");
+			WrapperMethods.explicitWait(MyAccountElements.myfavAddText(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			String actualmessage=WrapperMethods.getText(MyAccountElements.myfavAddText());
+			String exceptedmessage="Your favorite rooms will override any template locations you have personalized";
+			if( actualmessage.contains(exceptedmessage))
+				UMReporter.log(Status.PASS,"Text Your Favorite Room is Displayed");
+			else
+				UMReporter.log(Status.PASS,"Text Your Favorite Room is not Displayed");
+			WrapperMethods.explicitWait(MyAccountElements.filterButton(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			WrapperMethods.isElementAvailable(MyAccountElements.filterButton(), "Filter Button is displayed", "Filter Button is not displayed");
+			WrapperMethods.isElementAvailable(MyAccountElements.myfavSearchbox(), "Search Box is displayed", "Search Box is not displayed");
+			WrapperMethods.isElementAvailable(MyAccountElements.myfavSection(), "Section  is displayed", "Section is not displayed");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+	public static void deletefavrooms() throws IOException{
+		try {
+			int total_size = WrapperMethods.getElementsSize(MyAccountElements.myfavavarooms(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			System.out.println("total_size prior deletion: "+total_size);
+			while(total_size>0) {
+				WrapperMethods.explicitWait(MyAccountElements.deletefavroom(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+				WrapperMethods.javascriptclick(MyAccountElements.deletefavroom(), "Favorite room  is deleted", "Favorite room is not deleted");
+				WrapperMethods.pageRefresh();
+				WrapperMethods.explicitWait(MyAccountElements.clickMyFav(), 30);
+				WrapperMethods.click(MyAccountElements.clickMyFav(), "My Favorite rooms is clicked", "Failed to click My favorite room link");
+				total_size--;
+			}
+			if(total_size==0)
+				UMReporter.log(Status.PASS, "My Favorite room are not available");
+			WrapperMethods.explicitWait((MyAccountElements.myfavnorooms()), 30);
+			String actualfav = WrapperMethods.getText(MyAccountElements.myfavnorooms()).trim();
+			System.out.println("actualText: "+actualfav);
+			WrapperMethods.compares_Text("You don't have any favorite rooms saved. Search above to add a room.", actualfav, "No favorite room are displayed","Favorite are displayed");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+
+
 }
