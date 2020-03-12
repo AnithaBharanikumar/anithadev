@@ -22,7 +22,7 @@ public class SingleBookingAsDelegate {
 			SignInPageFunc login = new SignInPageFunc();			
 			login.verifySignIn(ConfigProp.getPropertyValue("emailId_" + ConfigProvider.getConfig("Environment")),ConfigProp.getPropertyValue("password_" + ConfigProvider.getConfig("Environment")));
 			HomePageFunc.clickUsername();
-			HomePageFunc.clickActAs();
+			HomePageFunc.clickActAs();;
 			HomePageFunc.clickDelegateName();
 			HomePageFunc.clickActOk();
 			HomePageFunc.verifyDelegateSwitch();			

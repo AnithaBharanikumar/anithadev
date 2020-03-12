@@ -38,23 +38,23 @@ public class HomePageElements {
 	}
 
 	public static By clickCreateReservation() {
-		return WrapperMethods.locatorValue(Locators.XPATH, "//span[text()='Create A Reservation']");
+		return WrapperMethods.locatorValue(Locators.XPATH, "//a[@title='Create A Reservation']");
 	}
-
+	
 	public static By clickMyEvents() {
-		return WrapperMethods.locatorValue(Locators.XPATH, "//span[text()='My Events']");
+		return WrapperMethods.locatorValue(Locators.XPATH, "//a[@title='My Events']");
 	}
 
 	public static By gettextMyHome() {
-		return WrapperMethods.locatorValue(Locators.XPATH, "//span[text()='My Home']");
+		return WrapperMethods.locatorValue(Locators.XPATH, "//a[@href='#my-home']");
 	}
 
 	public static By gettextMyTemplates() {
-		return WrapperMethods.locatorValue(Locators.XPATH, "//*[@id='my-reservation-templates']/h2']");
+		return WrapperMethods.locatorValue(Locators.XPATH, "//h2[text()='My Reservation Templates']");
 	}
 
 	public static By gettextMyBookings() {
-		return WrapperMethods.locatorValue(Locators.XPATH, "//*[@id='my-reservations']/h2']");
+		return WrapperMethods.locatorValue(Locators.XPATH, "//h2[text()='My Bookings']");
 	}
 
 	public static By gettextCurrentDate() {
@@ -90,7 +90,7 @@ public class HomePageElements {
 	}
 
 	public static By clickAbout() {
-		return WrapperMethods.locatorValue(Locators.XPATH, "//*[@id='templates-grid']/div/div[1]/div[2]/button[2]");
+		return WrapperMethods.locatorValue(Locators.XPATH, "//button[text()='about'][1]");
 	}
 
 	public static By clickBookNow() {
@@ -100,6 +100,170 @@ public class HomePageElements {
 	public static By bookingTimezone(){
 		return WrapperMethods.locatorValue(Locators.CLASS_NAME,"time-zone-heading");
 	}
+
+	public static By helpIcon() {
+		return WrapperMethods.locatorValue(Locators.ID, "pc_userHelp");
+    }
+	
+	public static By templateName() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//div[@class='col-xs-6 ellipsis-text']//span");
+        }
+	
+	public static By bookingDate(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@data-bind='text: localeDate()']");
+        }
+	
+   public static By bookingSearch(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@href='#my-bookings-search']");
+        }
+   
+   public static By bookingday(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@href='#my-bookings-daily']");
+        }
+  
+   public static By bookingMonth(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@href='#my-bookings-monthly']");
+        }
+   
+   public static By bookingDates(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@class='input-group-addon']");
+        }
+   
+
+  
+   public static By bookingPrevious(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@title='Previous']");
+        }
+  
+   public static By bookingToday(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@title='Today']");
+        }
+  
+   public static By bookingNext(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@title='Next']");
+        }
+  
+   public static By helpIconTitle(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"(//h1[text()='WELCOME!'])[1]");
+      }
+  
+   public static By helpIconMessage(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//span[@id='help-text-body-content']");
+      }
+  
+   public static By helpIconOk(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"(//button[text()='OK'])[2]");
+      }
+ 
+   public static By RoomRequestpage() {
+	    return WrapperMethods.locatorValue(Locators.XPATH,"//div[@id='page-title']//h1[1]");
+      }
+   
+   public static By clickWarnerMedia(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//img[@alt='EMS']");
+     }
+ 
+    public static By AboutTemplateHeading() {
+        return WrapperMethods.locatorValue(Locators.XPATH,"//h3[@class='modal-title'][1]");
+      }
+    
+    public static By aboutTemplateBookingrule(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//a[@href='#bookingrules']");
+     }
+    
+    public static By aboutTemplateClose(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"(//button[@data-dismiss='modal'])[2]");
+     }
+    
+    public static By aboutTemplateBooknow(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//button[text()='Book Now With This Template']");
+     }
+    
+    public static By monthCal(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//div[@class='calendar-cell-container']");
+      }
+    
+    public static By datecal(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//div[contains(@class,'bootstrap-datetimepicker-widget dropdown-menu')]//ul[1]");
+      }
+    
+    public static By searchTextBox(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"(//input[@class='form-control'])[2]");
+      }
+    
+    public static By bookingClickSearch(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//button[text()='Search']");
+      }
+    
+    public static By bookingsearchnoresult(){
+    	return WrapperMethods.locatorValue(Locators.XPATH,"//div[@id='booking-no-results']//h3[1]");
+    }
+    
+    public static By bookingsearchresult(){
+    	return WrapperMethods.locatorValue(Locators.XPATH," //*[@id=\"booking-search-results\"]/div[2]");
+    }
+    
+    public static By bookingSearchTitle(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//div[text()[normalize-space()='Title']]");
+     }
+    
+    public static By bookingSearchLocation(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//div[text()[normalize-space()='Location']]");
+     }
+    
+    public static By bookingSearchDateTime(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//div[text()[normalize-space()='Date & Time']]");
+     }
+    
+    public static By bookingSearchCancel(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//div[contains(@class,'col-md-2 col-sm-4')]//button[4]");
+     }
+    
+    public static By bookingSearchCancelHeading(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"(//h3[text()='Cancel Booking?'])[1]");
+     }
+    
+    public static By bookingSearchCancelTimezone(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"//p[@class='date']//strong[1]");
+    }
+   
+   public static By bookingSearchCancelNoBooking(){
+        return WrapperMethods.locatorValue(Locators.XPATH,"(//button[text()='No, Keep Booking'])[1]");
+    }
+   
+   public static By bookingSearchCancelYesBooking(){
+       return WrapperMethods.locatorValue(Locators.XPATH,"(//button[text()='Yes, Cancel Booking'])[1]");
+     }
+   
+   public static By bookingSearchCanceMessage() {
+	   return WrapperMethods.locatorValue(Locators.XPATH,"//div[@role='alert']");
+	 }
+   
+   public static By bookingCurrentDate() {
+	   return  WrapperMethods.locatorValue(Locators.XPATH,"//a[@data-bind='text: localeDate()']");
+	 }
+   
+   public static By Event() {
+	   return  WrapperMethods.locatorValue(Locators.XPATH,"//*[@id='my-bookings-daily']/div/div");
+	 }
+   
+   public static By clickMonthMessage() {
+	   return  WrapperMethods.locatorValue(Locators.XPATH,"//div[@id='no-bookings-wrap']//h3[1]");
+	 }
+   
+   public static By dateCalPrevious() {
+	   return  WrapperMethods.locatorValue(Locators.XPATH,"//span[@title='Previous Month']");
+	 }
+	    
+   public static By dateCalNext() {
+	   return  WrapperMethods.locatorValue(Locators.XPATH," //span[@title='Next Month']");
+	 }
+   
+   public static By datePicker() {
+	   return  WrapperMethods.locatorValue(Locators.XPATH,"//td[@class='day']");
+	 }
+
+
 
 
 }

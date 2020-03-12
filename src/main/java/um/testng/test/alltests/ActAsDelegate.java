@@ -21,7 +21,7 @@ public class ActAsDelegate {
 			SignInPageFunc login = new SignInPageFunc();			
 			login.verifySignIn(ConfigProp.getPropertyValue("emailId_delegate_" + ConfigProvider.getConfig("Environment")),ConfigProp.getPropertyValue("password_delegate_" + ConfigProvider.getConfig("Environment")));
 			HomePageFunc.clickUsername();
-			HomePageFunc.clickActAs();
+			HomePageFunc.clickActAs();;
 			HomePageFunc.clickDelegateName();
 			HomePageFunc.clickActOk();	
 			HomePageFunc.verifyDelegateSwitch();
