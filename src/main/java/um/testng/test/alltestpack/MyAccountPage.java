@@ -50,7 +50,7 @@ public class MyAccountPage extends BaseTest{
 		}
 	}
 	
-	@Test(groups = "MyAccounts", dataProvider = "GlobalTestData",priority=0,invocationCount = 1)		
+	@Test(groups = "MyAccounts", dataProvider = "GlobalTestData",priority=0,invocationCount = 1, dependsOnMethods="addDelegate")		
 	public void actAsDelegate(Map<String, String> elem, Map<String, String> etest, ITestContext ctx) throws IOException {
 
 		try {
