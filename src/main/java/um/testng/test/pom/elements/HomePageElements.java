@@ -7,6 +7,17 @@ import um.testng.test.utilities.framework.enums.Locators;
 
 public class HomePageElements {
 
+	public static By clickLogo() {
+		return WrapperMethods.locatorValue(Locators.CLASS_NAME, "ems-logo");
+	}
+	
+	public static By getApplicationName() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//div[@id='page-title']//h1[1]");
+	}
+	
+	public static By getUserIcon() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "//i[@class='fa fa-user']");
+	}
 
 	public static By clickUsername() {
 		return WrapperMethods.locatorValue(Locators.ID, "user-name");
@@ -14,6 +25,10 @@ public class HomePageElements {
 
 	public static By clickMyAccount() {
 		return WrapperMethods.locatorValue(Locators.LINKTEXT, "My Account");
+	}
+	
+	public static By clickMyAccountDropdown() {
+		return WrapperMethods.locatorValue(Locators.XPATH, "(//i[@class='fa fa-angle-down'])[1]");
 	}
 
 	public static By clickActAs() {

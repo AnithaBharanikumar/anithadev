@@ -13,6 +13,7 @@ import um.testng.test.alltests.HomeHelpIcon;
 import um.testng.test.alltests.HomeMenu;
 import um.testng.test.alltests.HomePageDate;
 import um.testng.test.alltests.HomePageDay;
+import um.testng.test.alltests.HomePageMenuBarValidation;
 import um.testng.test.alltests.HomePageMonth;
 import um.testng.test.alltests.HomeReseravtionandBookings;
 import um.testng.test.alltests.HomeSearchCancel;

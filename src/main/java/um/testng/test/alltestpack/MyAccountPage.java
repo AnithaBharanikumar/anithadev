@@ -15,6 +15,7 @@ import um.testng.test.alltests.DuplicateDelegate;
 import um.testng.test.alltests.HelpIconAboutLink;
 import um.testng.test.alltests.HelpIconMenu;
 import um.testng.test.alltests.HelpIconUserManualLink;
+import um.testng.test.alltests.HomePageMenuBarValidation;
 import um.testng.test.alltests.InvalidDelegate;
 import um.testng.test.alltests.MyAccountSubmenus;
 import um.testng.test.alltests.MyFavDefault;
@@ -203,6 +204,17 @@ public class MyAccountPage extends BaseTest{
 		try {
 			System.out.println("Inside user details submenu method");
 			UserDetailsSubmenu.userDetailsSubmenu();
+
+		} catch (Exception e) {
+			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());
+		}
+	}
+	@Test(groups = "MyAccounts", dataProvider = "GlobalTestData",priority=0,invocationCount = 1)		
+	public void homePageMenuBarValidation(Map<String, String> elem, Map<String, String> etest, ITestContext ctx) throws IOException {
+
+		try {
+			System.out.println("Inside Help Icon About method");
+			HomePageMenuBarValidation.homePageMenuBarValidation();;
 
 		} catch (Exception e) {
 			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());

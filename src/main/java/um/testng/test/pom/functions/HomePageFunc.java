@@ -15,6 +15,76 @@ import um.testng.test.utilities.framework.UMReporter;
 import um.testng.test.utilities.framework.WrapperMethods;
 
 public class HomePageFunc {
+	
+	public static void clickLogo() throws IOException{
+		try {
+			WrapperMethods.explicitWait(HomePageElements.clickLogo(), 30);					
+			WrapperMethods.click(HomePageElements.clickLogo(), "Clicked warnermedia logo in the left top corner", "Failed to click warnermedia logo in the left top corner");
+			WrapperMethods.explicitWait(HomePageElements.gettextMyHome(), 30);
+			WrapperMethods.verify_Two_Given_Text(WrapperMethods.getText(HomePageElements.gettextMyHome()), "My Home", "Home page is displayed when warner media logo is clicked", "Home page is not displayed when warner media logo is clicked");
+						
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+	
+	public static void getApplicationName() throws IOException{
+		try {
+			WrapperMethods.explicitWait(HomePageElements.getApplicationName(), 30);				
+			WrapperMethods.verify_Two_Given_Text(WrapperMethods.getText(HomePageElements.getApplicationName()), "Room Booking Tool", "Expected and actual name is matching for EMS application", "Expected and actual name is not matching for EMS application");
+			WrapperMethods.click(HomePageElements.clickLogo(), "Clicked warnermedia logo in the left top corner", "Failed to click warnermedia logo in the left top corner");
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+	
+	public static void isHelpIconDisplayed() throws IOException{
+		try {
+			WrapperMethods.explicitWait(MyAccountElements.clickHelpIcon(), 30);	
+			WrapperMethods.isElementPresent(MyAccountElements.clickHelpIcon(), "Help icon is available in the menubar", "Help icon is not available in the menubar");
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+	
+	public static void isUserIconDisplayed() throws IOException{
+		try {
+			WrapperMethods.explicitWait(HomePageElements.getUserIcon(), 30);	
+			WrapperMethods.isElementPresent(HomePageElements.getUserIcon(), "User icon is available in the menubar", "User icon is not available in the menubar");
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+	
+	public static void isUserNameDisplayed() throws IOException{
+		try {
+			WrapperMethods.explicitWait(HomePageElements.clickUsername(), 30);	
+			WrapperMethods.isElementPresent(HomePageElements.clickUsername(), "User name is available in the menubar", "User name is not available in the menubar");
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+	
+	public static void isAccountDropdownDisplayed() throws IOException{
+		try {
+			WrapperMethods.explicitWait(HomePageElements.clickMyAccountDropdown(), 30);	
+			WrapperMethods.isElementPresent(HomePageElements.clickMyAccountDropdown(), "Dropdown is available in the menubar next to user icon", "Dropdown is is not available next to user icon in the menubar");
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+	
 
 	public static void clickUsername() throws IOException{
 		try {

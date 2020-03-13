@@ -451,6 +451,8 @@ public class MyAccountFunc {
 		}
 	}
 
+	
+	
 	public static void clickHelpIcon() throws IOException{
 		try {
 			WrapperMethods.explicitWait(MyAccountElements.clickHelpIcon(), 30);	
