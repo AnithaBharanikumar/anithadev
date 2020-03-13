@@ -23,6 +23,7 @@ import um.testng.test.alltests.MyFavoriteDeleteroom;
 import um.testng.test.alltests.MyFavoriteinvalid;
 import um.testng.test.alltests.Myfavduplicate;
 import um.testng.test.alltests.Myfavrooms;
+import um.testng.test.alltests.Myfavvalidaterooms;
 import um.testng.test.alltests.NoDelegateText;
 import um.testng.test.alltests.UpdateAccountDetails;
 import um.testng.test.alltests.UserDetailsSubmenu;
@@ -276,6 +277,18 @@ public class MyAccountPage extends BaseTest{
 		try {
 			System.out.println("Delete Favorite Rooms");
 			MyFavoriteDeleteroom.verifyFavDelete();
+		} catch (Exception e) {
+			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());
+		}
+	}
+
+	@Test(groups = "MyAccounts", dataProvider = "GlobalTestData",priority=0,invocationCount = 1) 
+	public void validateMyFavroom(Map<String, String> elem, Map<String, String> etest, ITestContext ctx) throws IOException {
+
+		try {
+			System.out.println("Validate Favorite rooms");
+			Myfavvalidaterooms.validateFavrooms();
+
 		} catch (Exception e) {
 			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());
 		}

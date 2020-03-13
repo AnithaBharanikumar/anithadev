@@ -685,5 +685,86 @@ public class MyAccountFunc {
 		}
 	}
 
+	public static String getFavoriteRoom()throws IOException{
+		String favoriteroom=null;
+		//String noroom=null;
+		try {
+		HomePageFunc.clickUsername();
+		HomePageFunc.clickMyAccount();
+		WrapperMethods.explicitWait(MyAccountElements.clickMyFav() , Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		WrapperMethods.click(MyAccountElements.clickMyFav(), "My Fav rooms is clicked", "My Fav rooms is not clicked");
+		int size= WrapperMethods.getElementsSize(MyAccountElements.favoriteRoomName(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		System.out.println(size);
+		if(size==0) {
+		WrapperMethods.explicitWait(MyAccountElements.myfavnorooms(),Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		favoriteroom=WrapperMethods.getText(MyAccountElements.myfavnorooms());
+		System.out.println(favoriteroom);
 
+		}
+		else{
+		WrapperMethods.explicitWait(MyAccountElements.favoriteRoomName(),Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		favoriteroom=WrapperMethods.getText(MyAccountElements.favoriteRoomName());
+		System.out.println(favoriteroom);
+		}
+		} catch (Exception e) {
+		System.out.println(e.getMessage());
+		UMReporter.log(Status.FAIL, e.getMessage());
+		}
+
+		return favoriteroom;
+
+		}
+		public static void validateFavrooms() throws IOException{
+		try {
+		WrapperMethods.explicitWait(HomePageElements.clickBookNow(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		List<WebElement> booknow=WrapperMethods.findElements(HomePageElements.clickBookNow());
+		booknow.get(2).click();
+
+		} catch (Exception e) {
+		System.out.println(e.getMessage());
+		UMReporter.log(Status.FAIL, e.getMessage());
+		}
+		}
+		public static void clickFavoriteCheckbox()throws IOException{
+		try {
+		WrapperMethods.explicitWait(MyAccountElements.clickFavoriteCheckbox(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		WrapperMethods.click(MyAccountElements.clickFavoriteCheckbox(),"Checkbox is clicked","Checkbox is not clicked");
+		WrapperMethods.implicitWait();
+
+		} catch (Exception e) {
+		System.out.println(e.getMessage());
+		UMReporter.log(Status.FAIL, e.getMessage());
+		}
+		}
+		public static void getCreateReservationFavoriteroom() throws IOException{
+		try {
+		int size= WrapperMethods.getElementsSize(MyAccountElements.createReservationFavoriteRoom(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		System.out.println(size);
+		if(size==0) {
+		WrapperMethods.explicitWait(MyAccountElements.createReservationNoFavoriteRoom(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		String exceptedrooms=WrapperMethods.getText(MyAccountElements.createReservationNoFavoriteRoom());
+		System.out.println(exceptedrooms);
+		String actualroom=getFavoriteRoom();
+		System.out.println(actualroom);
+		if(exceptedrooms.contains(actualroom))
+		UMReporter.log(Status.PASS,"No rooms are available ");
+		else
+		UMReporter.log(Status.PASS,"No rooms are available ");
+		}
+		else {
+		WrapperMethods.explicitWait(MyAccountElements.createReservationFavoriteRoom(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+		String exceptedrooms=WrapperMethods.getText(MyAccountElements.createReservationFavoriteRoom());
+		System.out.println(exceptedrooms);
+		String actualroom=getFavoriteRoom();
+		System.out.println(actualroom);
+		if(exceptedrooms.contains(actualroom))
+		UMReporter.log(Status.PASS,"Rooms that were added as part of favorite rooms in the Account section alone is displayed ");
+		else
+		UMReporter.log(Status.PASS,"Rooms that were added as part of favorite rooms in the Account section alone is not displayed ");
+		}
+		} catch (Exception e) {
+		System.out.println(e.getMessage());
+		UMReporter.log(Status.FAIL, e.getMessage());
+		}
+		}
 }
