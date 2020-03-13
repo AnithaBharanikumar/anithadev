@@ -57,8 +57,27 @@ public class LogInPageFunc {
 	} catch (Exception e) {
 		System.out.println(e.getMessage());
 		UMReporter.log(Status.FAIL, e.getMessage());
-
+	}
 	} 
+	
+		public static void verifynonExistingEMSUser(String emailAddr, String password) throws IOException{
+			try {
+				
+				WrapperMethods.explicitWait(LoginPageElements.enterEmailAddress(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+				WrapperMethods.sendkeys(LoginPageElements.enterEmailAddress(), emailAddr, "User name is entered in the login page", "User name is not entered in the login page");
+				WrapperMethods.sendkeys(LoginPageElements.enterPassword(), password, "Password is entered in the login page", "Password is not entered in the login page");
+				WrapperMethods.click(LoginPageElements.clickLogIn(), "LogIn button is clicked", "LogIn button is not clicked");
+				
+				WrapperMethods.explicitWait(LoginPageElements.nonExistingEMSUserError(), 30);
+				String actualtext = WrapperMethods.getText(LoginPageElements.nonExistingEMSUserError());
+				System.out.println("Login error: "+actualtext);
+				WrapperMethods.verify_Two_Given_Text(actualtext, "Access to this application is denied. Please contact your local help desk", "Errror message displayed for bad credentials is matching", "Errror message displayed for bad credentials is not matching");		
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+
+		} 
+
 
 	}
 

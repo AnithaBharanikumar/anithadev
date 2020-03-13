@@ -188,7 +188,7 @@ public class MyAccountElements {
 	}
 	
 	public static By myfavnorooms() {
-		return WrapperMethods.locatorValue(Locators.XPATH, "(//div[contains(@class,'col-xs-12 grid-text-center')])[3]");
+		return WrapperMethods.locatorValue(Locators.XPATH, "(//div[contains(@class,'col-xs-12 grid-text-center')])[2]");
 	}
 	
 	public static By myfavavarooms() {
@@ -206,6 +206,8 @@ public class MyAccountElements {
 	public static By searchduplicatetextMyfav() {
 		return WrapperMethods.locatorValue(Locators.XPATH, "//div[@class='delegate-typeahead-notfound']"); 
 	}
+	
+	
 	
 	
 

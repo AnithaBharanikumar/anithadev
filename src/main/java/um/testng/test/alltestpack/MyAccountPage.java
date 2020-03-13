@@ -18,6 +18,8 @@ import um.testng.test.alltests.HelpIconUserManualLink;
 import um.testng.test.alltests.InvalidDelegate;
 import um.testng.test.alltests.MyAccountSubmenus;
 import um.testng.test.alltests.MyFavDefault;
+import um.testng.test.alltests.MyFavoriteDeleteroom;
+import um.testng.test.alltests.MyFavoriteinvalid;
 import um.testng.test.alltests.Myfavduplicate;
 import um.testng.test.alltests.Myfavrooms;
 import um.testng.test.alltests.NoDelegateText;
@@ -244,5 +246,28 @@ public class MyAccountPage extends BaseTest{
 			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());
 		}
 	}
+
+	@Test(groups = "MyAccounts", dataProvider = "GlobalTestData",priority=0,invocationCount = 1)
+	public void verifyFavinvalid(Map<String, String> elem, Map<String, String> etest, ITestContext ctx) throws IOException {
+
+		try {
+			System.out.println("Validate Favorite rooms invalid entry");
+			MyFavoriteinvalid.verifyFavinvalid();
+		} catch (Exception e) {
+			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());
+		}
+	}
+
+	@Test(groups = "MyAccounts", dataProvider = "GlobalTestData",priority=0,invocationCount = 1)
+	public void  verifyFavDelete(Map<String, String> elem, Map<String, String> etest, ITestContext ctx) throws IOException {
+
+		try {
+			System.out.println("Delete Favorite Rooms");
+			MyFavoriteDeleteroom.verifyFavDelete();
+		} catch (Exception e) {
+			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());
+		}
+	}
+
 
 }

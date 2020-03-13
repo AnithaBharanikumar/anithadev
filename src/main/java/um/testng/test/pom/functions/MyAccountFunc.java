@@ -665,5 +665,23 @@ public class MyAccountFunc {
 		}
 	}
 
+	public static void invalidFavRoom(String favrooms)throws IOException{
+
+		try {
+			WrapperMethods.explicitWait(MyAccountElements.myfavSearchbox(), Integer.parseInt(ConfigProp.getPropertyValue("maxWaitTime")));
+			WrapperMethods.click(MyAccountElements.myfavSearchbox());
+			WrapperMethods.sendkeys(MyAccountElements.myfavSearchbox(), favrooms, "Favorite room name is entered", "Favorite roome is not entered");
+			WrapperMethods.implicitWait();
+			String actualmessage = WrapperMethods.getText(MyAccountElements.searchduplicatetextMyfav());
+			System.out.println(actualmessage);
+			String exptectedmessage = "There are no rooms that match your search criteria.";
+			WrapperMethods.compares_Text(exptectedmessage, actualmessage, "Invalid Favorite room", "Valid favorite room");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			UMReporter.log(Status.FAIL, e.getMessage());
+		}
+	}
+
 
 }

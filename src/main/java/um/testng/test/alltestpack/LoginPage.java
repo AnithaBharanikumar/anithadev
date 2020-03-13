@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import um.testng.test.alltests.InvalidLoginCredentials;
+import um.testng.test.alltests.NonExistingEMSUser;
 import um.testng.test.utilities.framework.UMReporter;
 
 public class LoginPage extends BaseTest{
@@ -35,4 +36,17 @@ public class LoginPage extends BaseTest{
 			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());
 		}
 	}
+	
+	@Test(groups = "Login", dataProvider = "GlobalTestData",priority=1,invocationCount = 1)		
+	public void nonExistingEMSUser(Map<String, String> elem, Map<String, String> etest, ITestContext ctx) throws IOException {
+
+		try {
+			System.out.println("In invalid Login credentials method");
+			NonExistingEMSUser.nonExistingEMSUser();
+			
+		} catch (Exception e) {
+			UMReporter.log(Status.FAIL, "Failed due to unexpected exception: " + e.getMessage());
+		}
+	}
+
 }
